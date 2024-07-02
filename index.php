@@ -42,7 +42,7 @@
 <body>
     <!-- Dentro do container sera criada toda a página -->
     <div class="container">
-        <h2 class="text-center"> Lista de Clientes <i class="bi bi-people-fill"></i></h2>
+        <h2 class="text-center"> Lista de Usuarios <i class="bi bi-people-fill"></i></h2>
 
         <h5 class="text-end"> 
             <a href="view/page_register.php" class="btn btn-primary btn-xs"> 
