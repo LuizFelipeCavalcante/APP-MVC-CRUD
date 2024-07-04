@@ -1,7 +1,6 @@
 <?php
 
-    //possivel correção pro erro:
-     include "Conexao.class.php";
+    //possivel correção pro erro: include "Conexao.class.php";
 
     class Manager extends Conexao{
         
