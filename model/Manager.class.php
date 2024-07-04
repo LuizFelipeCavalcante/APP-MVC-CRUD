@@ -1,4 +1,8 @@
 <?php
+
+    //possivel correção pro erro:
+     include "Conexao.class.php";
+
     class Manager extends Conexao{
         
         public function insert_client($data){
@@ -24,7 +28,7 @@
         public function list_client_by_id($id)
         {
             $pdo = parent::get_instance();
-            $sql- "SELECT * FROM usuario WHERE id = $id":
+            $sql = "SELECT * FROM usuario WHERE id = $id";
             $statement = $pdo->query($sql);
             $statement->bindValue(":id", $id);
             $statement->execute();
@@ -35,7 +39,7 @@
         public function delete_client($id)
         {
             $pdo = parent::get_instance();
-            $sql "DELETE FROM usuari WHERE id = :id"; 
+            $sql = "DELETE FROM usuario WHERE id = :id"; 
             $statement = $pdo->prepare($sql);
             $statement->bindValue(":id", $id);
             $statement->execute();
@@ -44,7 +48,7 @@
         public function update_client($data)
         {
             $pdo = parent::get_instance();
-            $sql "UPDATE usuario
+            $sql = "UPDATE usuario
                     SET nome = :name,
                         email = :email,
                             cpf = :cpf,

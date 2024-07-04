@@ -48,8 +48,10 @@ $manager = new Manager();
 </head>
 
 <?php
-    if(isset($_GET['cod'])){
-        switch($_GET['cod']){
+    if(isset($_GET['cod']))
+    {
+        switch($_GET['cod'])
+        {
             case 1:
                 Alertas::success("Cadastro confirmado com sucesso");
                 break;
@@ -61,10 +63,9 @@ $manager = new Manager();
                         break;
                             default:
                                 Alertas::danger("Nenhuma ação realizada");
-                                break
-        }
-        
-    } 
+                                break;
+        }  
+    }
 ?>
 <body>
     <!-- Dentro do container sera criada toda a página -->
