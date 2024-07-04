@@ -47,7 +47,22 @@ $manager = new Manager();
     </style>
 </head>
 
-
+<?php
+    if(isset($_GET['cod'])){
+        switch($_GET['cod']){
+            case 1:
+                Alertas::success("Cadastro confirmado com sucesso");
+                break;
+                case 2:
+                    Alertas::success("Cadastro excluido com sucesso");
+                    break;
+                    default:
+                        Alertas::success("Nenhuma ação realizada");
+                        break
+        }
+        
+    } 
+?>
 <body>
     <!-- Dentro do container sera criada toda a página -->
     <div class="container">
@@ -86,7 +101,8 @@ $manager = new Manager();
                         <td><?= $data['phone'] ?></td>
 
                         <td>
-                            <form method="POST"> 
+                            <form method="POST" action="view/page_update.php"> 
+                                <input type="hidden" name = "id" value <?= $data['id'] ?>>
                                 <button class="btn btn-warning btn-xs"> 
                                 <i class="bi bi-pencil-square"></i>
                                 </button>
