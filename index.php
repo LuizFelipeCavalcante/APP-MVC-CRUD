@@ -56,9 +56,12 @@ $manager = new Manager();
                 case 2:
                     Alertas::success("Cadastro excluido com sucesso");
                     break;
-                    default:
-                        Alertas::success("Nenhuma ação realizada");
-                        break
+                    case 3:
+                        Alertas::success("Cadastro atualizado com sucesso");
+                        break;
+                            default:
+                                Alertas::danger("Nenhuma ação realizada");
+                                break
         }
         
     } 

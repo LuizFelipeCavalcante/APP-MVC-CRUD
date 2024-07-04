@@ -43,7 +43,7 @@
         <h2 class="py-5 text-center">Novo Usuario </i> </h2>
 
 
-        <form method="POST" action="../controller/insert_client.php"> 
+        <form method="POST" action="../controller/update_client.php"> 
             <div class="row g-3">
 
                 <div class="col-md-6">

@@ -6,5 +6,15 @@ class Alertas{
             $message
         </div>";
     }
+
+    
+    public static function danger($message){
+
+        echo "<div class='alert text-center alert-danger' role='alert'>
+            $message
+        </div>";
+    }
 }
+
+
 ?>

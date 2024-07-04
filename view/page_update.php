@@ -1,3 +1,13 @@
+<?php
+include "../model/Conexao.class.php";
+include "../model/Manager.class.php";
+
+$manager = new Manager();
+$id = $_POST['id'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,38 +53,40 @@
         <h2 class="py-5 text-center">Atualizar Usuario </i> </h2>
 
 
-        <form method="POST" action="../controller/update_client.php"> 
+        <form method="POST" action="../controller/insert_client.php"> 
             <div class="row g-3">
-
+                <?php foreach($manager->list_client_by_id($id) as $data) :?>
                 <div class="col-md-6">
                     <label for="nome" class="form-label">Nome <i class="bi bi-person"></i> </label>
-                    <input type="text" class="form-control" name="nome" required autofocus>
+                    <input type="text" class="form-control" name="nome" value = <?= $data['name'] ?> required autofocus >
                 </div>
 
                 <div class="col-md-6">
                     <label for="email" class="form-label">Email <i class="bi bi-person"></i> </label>
-                    <input type="email" class="form-control" name="email" required autofocus>
+                    <input type="email" class="form-control" name="email" value = <?= $data['email'] ?> required autofocus>
                 </div>
 
                 <div class="col-md-6">
                     <label for="cpf" class="form-label">CPF <i class="bi bi-person"></i> </label>
-                    <input type="text" class="form-control" name="cpf" required autofocus>
+                    <input type="text" class="form-control" name="cpf" value = <?= $data['cpf'] ?> required autofocus>
                 </div>
 
                 <div class="col-md-6">
                     <label for="data_nascimento" class="form-label">Data Nascimento <i class="bi bi-person"></i> </label>
-                    <input type="date" class="form-control" name="data_nascimento" required autofocus>
+                    <input type="date" class="form-control" name="data_nascimento" value = <?= $data['birth'] ?> required autofocus>
                 </div>
 
                 <div class="col-md-6">
                     <label for="telefone" class="form-label">Telefone <i class="bi bi-person"></i> </label>
-                    <input type="text" class="form-control" name="telefone" required autofocus>
+                    <input type="text" class="form-control" name="telefone" value = <?= $data['phone'] ?> required autofocus>
                 </div>
 
                 <div class="col-md-6">
                     <label for="endereco" class="form-label">Endereço <i class="bi bi-person"></i> </label>
-                    <input type="text" class="form-control" name="endereco" required autofocus>
+                    <input type="text" class="form-control" name="endereco" value = <?= $data['address'] ?> required autofocus>
                 </div>
+                    <input type="hidden" name="id" value = <?= $data['id'] ?>>
+                    <?= endforeach;?>
 
                 <hr class="my-4">
 

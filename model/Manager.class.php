@@ -28,7 +28,7 @@
             $statement = $pdo->query($sql);
             $statement->bindValue(":id", $id);
             $statement->execute();
-            
+
             return $statement->fetchAll();
         }
 
@@ -38,6 +38,26 @@
             $sql "DELETE FROM usuari WHERE id = :id"; 
             $statement = $pdo->prepare($sql);
             $statement->bindValue(":id", $id);
+            $statement->execute();
+        }
+
+        public function update_client($data)
+        {
+            $pdo = parent::get_instance();
+            $sql "UPDATE usuario
+                    SET nome = :name,
+                        email = :email,
+                            cpf = :cpf,
+                                data_nascimento = :birth,
+                                    telefone = :phone,
+                                        endereco = :address
+                                            WHERE id = :id";
+            var_dump($sql);
+            $statement = $pdo->prepare($sql);
+            foreach ($data as $key => $value)
+            {
+                $statement->bindValue("$key", $value);
+            }
             $statement->execute();
         }
     }
