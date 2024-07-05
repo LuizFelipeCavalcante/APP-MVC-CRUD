@@ -1,7 +1,7 @@
 <?php
 include "utilities/Alerts.class.php";
 include "model/Manager.class.php";
-include "utilities/Alerts.class.php";
+
 
 $manager = new Manager();
 ?>
@@ -47,29 +47,28 @@ $manager = new Manager();
     </style>
 </head>
 
-<?php
-    if(isset($_GET['cod']))
-    {
-        switch($_GET['cod'])
-        {
-            case 1:
-                Alertas::success("Cadastro confirmado com sucesso");
-                break;
-                case 2:
-                    Alertas::success("Cadastro excluido com sucesso");
-                    break;
-                    case 3:
-                        Alertas::success("Cadastro atualizado com sucesso");
-                        break;
-                            default:
-                                Alertas::danger("Nenhuma ação realizada");
-                                break;
-        }  
-    }
-?>
+
 <body>
     <!-- Dentro do container sera criada toda a página -->
     <div class="container">
+    <?php
+    
+    if(isset($_GET['cod'])){
+        switch($_GET['cod']){
+            case 1:
+                Alertas::success('Cadastro confirmado com sucesso');
+                break;
+                case 2:
+                    Alertas::success('Cadastro excluido com sucesso');
+                break;
+                default:
+                    Alertas::success('Nenhuma ação realizada');
+                break;
+        }
+    }
+
+    ?>
+
         <h2 class="text-center"> Lista de Usuarios <i class="bi bi-people-fill"></i></h2>
 
         <h5 class="text-end"> 

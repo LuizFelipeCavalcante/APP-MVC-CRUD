@@ -1,7 +1,9 @@
 <?php
+include "model/Conexao.class.php";
+?>
 
+<?php
     //possivel correção pro erro: include "Conexao.class.php";
-
     class Manager extends Conexao{
         
         public function insert_client($data){
@@ -27,8 +29,8 @@
         public function list_client_by_id($id)
         {
             $pdo = parent::get_instance();
-            $sql = "SELECT * FROM usuario WHERE id = $id";
-            $statement = $pdo->query($sql);
+            $sql = "SELECT * FROM usuario WHERE id = :id";
+            $statement = $pdo->prepare($sql);
             $statement->bindValue(":id", $id);
             $statement->execute();
 
